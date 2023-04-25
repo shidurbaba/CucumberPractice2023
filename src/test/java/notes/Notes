@@ -1,0 +1,8 @@
+Tagging Concept:
+When you tag @Smoke or @Regression, either scenarios with Smoke or Regression tag found will be executed
+When you tag @Smoke and @Regression, then scenarios where cucumber finds both of these tags will be executed
+When you tag "not @Smoke", this will skip scenarios which are tagged Smoke, but will execute the scenarios other than Smoke
+
+Prerequisites:
+Preerequisite scenarios are scenarios execute first before executing remainder of the scenarios. Because you want to initiate web browsers etc. you want
+this step to be executed before you execute another codes.
