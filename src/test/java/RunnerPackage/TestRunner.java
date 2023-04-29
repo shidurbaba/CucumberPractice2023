@@ -9,7 +9,7 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
         features = "C:\\Users\\moses\\IdeaProjects\\CucumberPractice2023\\src\\test\\java\\cucumber\\ExamplesDemoPart1.feature",
         glue = {"stepDefinitions"},
-        tags = "not @Sanity",
+        tags = "@Portal",
         dryRun = false
 )
 public class TestRunner {
