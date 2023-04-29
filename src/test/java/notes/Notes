@@ -6,3 +6,7 @@ When you tag "not @Smoke", this will skip scenarios which are tagged Smoke, but 
 Prerequisites:
 Preerequisite scenarios are scenarios execute first before executing remainder of the scenarios. Because you want to initiate web browsers etc. you want
 this step to be executed before you execute another codes.
+Background keyword can be a common prerequiste to all the scenarios in feature file
+
+Hooks:
+Execute your scenarios before every scenarios.

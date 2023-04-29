@@ -1,5 +1,10 @@
 Feature: Login Functionality
 
+  Background:
+    Given validate the browser
+    When browser is triggered
+    Then check if browser is started
+
   @Regression
   Scenario Outline: Validate Login Functionality of Wealthy Users
     Given the user has access to <URL>
