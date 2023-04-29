@@ -9,7 +9,7 @@ public class Hooks {
     public void beforeValidate()
     {
 
-        System.out.println("Execute before portal tests");
+        System.out.println("Execute Before portal tests");
         System.out.println("Open Chrome Browser");
     }
 
@@ -17,8 +17,18 @@ public class Hooks {
     public void afterValidate()
     {
 
-        System.out.println("Execute after portal tests");
+        System.out.println("Execute After portal tests");
         System.out.println("Delete all cookies");
     }
 
+    @Before("@WebTest")
+    public void beforeWebTests()
+    {
+        System.out.println("Execute Before Web suite");
+    }
+    @After("@WebTest")
+    public void afterWebTests()
+    {
+        System.out.println("Execute After Web suite");
+    }
 }
