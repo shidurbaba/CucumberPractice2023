@@ -10,3 +10,27 @@ Background keyword can be a common prerequiste to all the scenarios in feature f
 
 Hooks:
 Execute your scenarios before every scenarios.
+
+Plugin: Generate Neat Reports
+Pretty report keyword generate outputs reports.
+"pretty", "html:target/cucumber.html"
+Json report: same as html and it is also neat report
+"json:target/cucumber.json"
+Junit report - similar like Json and html
+"junit:target/cukes.xml"
+
+Jenkins Report:
+Using junit we can use it as an input in jenkins' continuous integration tool and generate pie chart for this cucumber report
+
+Monochrome Plugin: A neat attribute which will output a neat format
+
+Strict Plugin: deprecated
+
+Common Problems:
+1. Write and maintain reusable code across the framework - with the help of step definition and regular expression context
+2. Data drive the data into test case - Datatable helps to drive the data
+3. Parameterize the test case -Using the help of Scenario outline.
+4. 100 percent test coverage - Gherkin sceanrio
+5. Run all test cases -Test Runner
+6. Control the test execution few - Using Tags in cucumber and mention the same in testrunner
+7. Separate common logic and test code Post and Pre requisite of the test - Hooks and Tags -/ Background
