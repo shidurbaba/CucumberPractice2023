@@ -1,18 +1,16 @@
 package RunnerPackage;
 
 
-import io.cucumber.junit.Cucumber;
-import io.cucumber.junit.CucumberOptions;
-import org.junit.runner.RunWith;
+import io.cucumber.testng.AbstractTestNGCucumberTests;
+import io.cucumber.testng.CucumberOptions;
 
-@RunWith(Cucumber.class)
+
 @CucumberOptions(
-        features = "C:\\Users\\moses\\IdeaProjects\\CucumberPractice2023\\src\\test\\java\\cucumber\\ExamplesDemoPart1.feature",
-        glue = {"stepDefinitions"},
-        tags = "@Portal or @WebTest",
+        features = "C:\\Users\\moses\\IdeaProjects\\CucumberPractice2023\\src\\test\\java\\feature\\VegetableCart.feature",
+        glue = {"GreenKartStepDefinitions"},
         plugin = {"pretty","html:target/cucumber.html","json:target/cucumber.json","junit:target/cukes.xml"},
         monochrome = true,
-        dryRun = false
+        dryRun = true
 )
-public class TestRunner {
+public class TestRunner extends AbstractTestNGCucumberTests {
 }
