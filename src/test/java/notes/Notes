@@ -34,3 +34,7 @@ Common Problems:
 5. Run all test cases -Test Runner
 6. Control the test execution few - Using Tags in cucumber and mention the same in testrunner
 7. Separate common logic and test code Post and Pre requisite of the test - Hooks and Tags -/ Background
+
+Handling Windows:
+Set collection - we are using set collection types to store our windows.
+Iterator - we are using Iterator method to retrieve those windows.
