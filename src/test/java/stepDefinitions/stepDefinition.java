@@ -22,18 +22,18 @@ public class stepDefinition {
         driver.get("https://rahulshettyacademy.com/seleniumPractise/#/");
     }
     @When("User searched with Shortname {string} and extracted actual name of product")
-    public void user_searched_with_shortname_and_extracted_actual_name_of_product(String ShortName) {
+    public void user_searched_with_shortname_and_extracted_actual_name_of_product(String ShortName) throws InterruptedException {
 
     driver.findElement(By.xpath("//input[@type='search']")).sendKeys(ShortName);
-
+    Thread.sleep(2000);
     landingPageProductName = driver.findElement(By.cssSelector("h4.product-name")).getText().split("-")[0].trim();
 
     System.out.println(landingPageProductName + " is extracted from Home page");
 
     }
 
-    @Then("User searched for {string} shortname in offers page to check if product exist with same name")
-    public void user_searched_for_same_shortname_in_offers_page_to_check_if_product_exist_with_same_name(String ShortName) {
+    @Then("User searched for {string} shortname in offers page")
+    public void user_searched_for_same_shortname_in_offers_page_to_check_if_product_exist_with_same_name(String ShortName) throws InterruptedException {
         driver.findElement(By.linkText("Top Deals")).click();
         Set<String> windows = driver.getWindowHandles();
         Iterator<String> iterator = windows.iterator();
@@ -42,7 +42,7 @@ public class stepDefinition {
         driver.switchTo().window(childWindow);
 
         driver.findElement(By.xpath("//input[@type='search']")).sendKeys(ShortName);
-
+        Thread.sleep(2000);
         offerPageProductName = driver.findElement(By.cssSelector("tr td:nth-child(1)")).getText();
 
 
