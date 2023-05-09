@@ -41,3 +41,7 @@ Iterator - we are using Iterator method to retrieve those windows.
 
 Picocontainer Dependencies - Create a constructor in your step definition class of a class which has the dependencies from cucumber picocontainer
 Constructor initialize the variables in a single given class and those variables can be used across all your stepDefinition classes.
+
+Single Responsibility Principle:
+Create classes that are loosely coupled
+we can solve it using dependency injections like Picocontainer
