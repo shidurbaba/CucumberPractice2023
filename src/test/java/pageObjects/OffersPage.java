@@ -1,18 +1,18 @@
 package pageObjects;
 
 import org.openqa.selenium.By;
-import utils.TestContextStepUp;
+import org.openqa.selenium.WebDriver;
 
 import java.util.Iterator;
 import java.util.Set;
 
 public class OffersPage {
 
-    TestContextStepUp testContextStepUp;
+    public WebDriver driver;
     //Instantiate an object
-    public OffersPage(TestContextStepUp contextStepUp)
+    public OffersPage(WebDriver driver)
     {
-        this.testContextStepUp = contextStepUp;
+        this.driver = driver;
     }
 
     private By search = By.xpath("//input[@type='search']");
@@ -21,23 +21,23 @@ public class OffersPage {
 
     public void searchItem(String name)
     {
-        testContextStepUp.driver.findElement(search).sendKeys(name);
+        driver.findElement(search).sendKeys(name);
     }
     public String extractedSearchResult() {
-        return testContextStepUp.driver.findElement(searchResult).getText();
+        return driver.findElement(searchResult).getText();
     }
 
     public void topResultsClick()
     {
-        testContextStepUp.driver.findElement(TopResults).click();
+        driver.findElement(TopResults).click();
 
     }
     public void switchToOfferPage() {
         topResultsClick();
-        Set<String> windows = testContextStepUp.driver.getWindowHandles();
+        Set<String> windows = driver.getWindowHandles();
         Iterator<String> iterator = windows.iterator();
         String parentWindow = iterator.next();
         String childWindow = iterator.next();
-        testContextStepUp.driver.switchTo().window(childWindow);
+        driver.switchTo().window(childWindow);
     }
 }

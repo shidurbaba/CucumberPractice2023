@@ -45,3 +45,5 @@ Constructor initialize the variables in a single given class and those variables
 Single Responsibility Principle:
 Create classes that are loosely coupled
 we can solve it using dependency injections like Picocontainer
+
+Factory Design Pattern:

@@ -5,6 +5,7 @@ import io.cucumber.java.en.When;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import pageObjects.LandingPage;
+import pageObjects.PageObjectManager;
 import utils.TestContextStepUp;
 
 public class LandingPageStepDefinition {
@@ -13,10 +14,11 @@ public class LandingPageStepDefinition {
     public String landingPageProductName;
     LandingPage landingPage;
     TestContextStepUp testContextStepUp;
-    public LandingPageStepDefinition(TestContextStepUp contextStepUp, LandingPage landingPage)
+    PageObjectManager pageObjectManager;
+    public LandingPageStepDefinition(TestContextStepUp contextStepUp)
     {
         this.testContextStepUp = contextStepUp;
-        this.landingPage = landingPage;
+
     }
 
     @Given("User is on GreenCart Landing page")

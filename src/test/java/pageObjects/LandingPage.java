@@ -1,27 +1,29 @@
 package pageObjects;
 
 import org.openqa.selenium.By;
-import utils.TestContextStepUp;
+import org.openqa.selenium.WebDriver;
 
 public class LandingPage {
 
     private By search = By.xpath("//input[@type='search']");
     private By productName = By.cssSelector("h4.product-name");
 
-    TestContextStepUp testContextStepUp;
+    public WebDriver driver;
+
+
     //Instantiate an object
-    public LandingPage(TestContextStepUp contextStepUp)
+   public LandingPage(WebDriver driver)
     {
-        this.testContextStepUp = contextStepUp;
+        this.driver = driver;
     }
 
     public void searchItem(String name)
     {
-        testContextStepUp.driver.findElement(search).sendKeys(name);
+        driver.findElement(search).sendKeys(name);
     }
 
     public String getTrimSearchResult() {
-        return testContextStepUp.driver.findElement(By.cssSelector("h4.product-name")).getText().split("-")[0].trim();
+        return driver.findElement(By.cssSelector("h4.product-name")).getText().split("-")[0].trim();
     }
 
 }

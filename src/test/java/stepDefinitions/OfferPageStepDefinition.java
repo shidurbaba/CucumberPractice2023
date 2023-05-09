@@ -4,6 +4,7 @@ import io.cucumber.java.en.Then;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import pageObjects.OffersPage;
+import pageObjects.PageObjectManager;
 import utils.TestContextStepUp;
 
 public class OfferPageStepDefinition {
@@ -15,10 +16,12 @@ public class OfferPageStepDefinition {
     OffersPage offersPage;
 
     TestContextStepUp testContextStepUp;
-    public OfferPageStepDefinition(TestContextStepUp contextStepUp, OffersPage offersPage)
+
+    PageObjectManager pageObjectManager;
+
+    public OfferPageStepDefinition(TestContextStepUp contextStepUp)
     {
         this.testContextStepUp = contextStepUp;
-        this.offersPage = offersPage;
     }
     @Then("User searched for {string} shortname in offers page")
     public void user_searched_for_same_shortname_in_offers_page_to_check_if_product_exist_with_same_name(String ShortName) throws InterruptedException {
