@@ -15,10 +15,9 @@ public class OffersPage {
         this.testContextStepUp = contextStepUp;
     }
 
-    By search = By.xpath("//input[@type='search']");
-    By searchResult = By.cssSelector("tr td:nth-child(1)");
-
-    By TopResults = By.linkText("Top Deals");
+    private By search = By.xpath("//input[@type='search']");
+    private By searchResult = By.cssSelector("tr td:nth-child(1)");
+    private By TopResults = By.linkText("Top Deals");
 
     public void searchItem(String name)
     {

@@ -5,8 +5,8 @@ import utils.TestContextStepUp;
 
 public class LandingPage {
 
-    By search = By.xpath("//input[@type='search']");
-    By productName = By.cssSelector("h4.product-name");
+    private By search = By.xpath("//input[@type='search']");
+    private By productName = By.cssSelector("h4.product-name");
 
     TestContextStepUp testContextStepUp;
     //Instantiate an object
