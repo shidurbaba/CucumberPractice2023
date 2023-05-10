@@ -3,7 +3,6 @@ package stepDefinitions;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import pageObjects.LandingPage;
 import pageObjects.PageObjectManager;
 import utils.TestContextStepUp;
@@ -23,8 +22,8 @@ public class LandingPageStepDefinition {
 
     @Given("User is on GreenCart Landing page")
     public void user_is_on_green_cart_landing_page() {
-        testContextStepUp.driver = new ChromeDriver();
-        testContextStepUp.driver.get("https://rahulshettyacademy.com/seleniumPractise/#/");
+       // testContextStepUp.driver = new ChromeDriver();
+        driver.get("https://rahulshettyacademy.com/seleniumPractise/#/");
     }
     @When("User searched with Shortname {string} and extracted actual name of product")
     public void user_searched_with_shortname_and_extracted_actual_name_of_product(String ShortName) throws InterruptedException {

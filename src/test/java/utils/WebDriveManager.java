@@ -9,6 +9,12 @@ public class WebDriveManager {
 
     public  WebDriver WebDriveManager()
     {
-         return driver = new ChromeDriver();
+         if(driver == null)
+         {
+             driver = new ChromeDriver();
+             driver.get("https://rahulshettyacademy.com/seleniumPractise/#/");
+
+         }
+         return driver;
     }
 }

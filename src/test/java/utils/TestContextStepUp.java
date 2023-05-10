@@ -11,9 +11,12 @@ public class TestContextStepUp {
 
     public PageObjectManager pageObjectManager;
 
+    public WebDriveManager webDriveManager;
+
     public TestContextStepUp()
     {
-        pageObjectManager = new PageObjectManager(driver);
+        webDriveManager = new WebDriveManager();
+        pageObjectManager = new PageObjectManager(webDriveManager.WebDriveManager());
     }
 
 
