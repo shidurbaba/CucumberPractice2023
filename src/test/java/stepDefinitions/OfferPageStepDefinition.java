@@ -1,7 +1,6 @@
 package stepDefinitions;
 
 import io.cucumber.java.en.Then;
-import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import pageObjects.OffersPage;
 import utils.PageObjectManager;
@@ -9,7 +8,7 @@ import utils.TestContextStepUp;
 
 public class OfferPageStepDefinition {
 
-    public WebDriver driver;
+
     public String landingPageProductName;
     public String offerPageProductName;
 
@@ -35,9 +34,9 @@ public class OfferPageStepDefinition {
 
     @Then("validate product name in offers page matches with Landing Page")
     public void validate_product_name_in_offers_page_matches_with_landing_page() {
-        Assert.assertEquals(offerPageProductName, testContextStepUp.landingPageProductName);
         System.out.println(offerPageProductName + "--vs---" + testContextStepUp.landingPageProductName);
-        driver.quit();
+        Assert.assertEquals(offerPageProductName, testContextStepUp.landingPageProductName);
+        testContextStepUp.driver.quit();
     }
 
     public void SwitchToChild()

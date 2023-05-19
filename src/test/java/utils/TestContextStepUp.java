@@ -23,8 +23,9 @@ public class TestContextStepUp {
     public TestContextStepUp()
     {
         webDriveManager = new WebDriveManager();
-        pageObjectManager = new PageObjectManager(webDriveManager.WebDriveManager());
-        utils = new GenericUtils(webDriveManager.WebDriveManager());
+        this.driver = webDriveManager.WebDriveManager();
+        pageObjectManager = new PageObjectManager(driver);
+        utils = new GenericUtils(driver);
         landingPage = pageObjectManager.getLandingPage();
         offersPage = pageObjectManager.getOffersPage();
     }
