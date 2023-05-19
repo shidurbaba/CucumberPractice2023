@@ -12,8 +12,6 @@ public class WebDriveManager {
          if(driver == null)
          {
              driver = new ChromeDriver();
-             driver.get("https://rahulshettyacademy.com/seleniumPractise/#/");
-
          }
          return driver;
     }

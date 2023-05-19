@@ -23,7 +23,12 @@ public class LandingPage {
     }
 
     public String getTrimSearchResult() {
-        return driver.findElement(By.cssSelector("h4.product-name")).getText().split("-")[0].trim();
+        return driver.findElement(productName).getText().split("-")[0].trim();
+    }
+
+    public void getMeGreenKartLandingPage ()
+    {
+        driver.get("https://rahulshettyacademy.com/seleniumPractise/#/");
     }
 
 }

@@ -3,9 +3,6 @@ package pageObjects;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-import java.util.Iterator;
-import java.util.Set;
-
 public class OffersPage {
 
     public WebDriver driver;
@@ -32,12 +29,5 @@ public class OffersPage {
         driver.findElement(TopResults).click();
 
     }
-    public void switchToOfferPage() {
-        topResultsClick();
-        Set<String> windows = driver.getWindowHandles();
-        Iterator<String> iterator = windows.iterator();
-        String parentWindow = iterator.next();
-        String childWindow = iterator.next();
-        driver.switchTo().window(childWindow);
-    }
+
 }

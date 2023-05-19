@@ -17,13 +17,13 @@ public class LandingPageStepDefinition {
     public LandingPageStepDefinition(TestContextStepUp contextStepUp)
     {
         this.testContextStepUp = contextStepUp;
+        this.landingPage = testContextStepUp.landingPage;
 
     }
 
     @Given("User is on GreenCart Landing page")
     public void user_is_on_green_cart_landing_page() {
-       // testContextStepUp.driver = new ChromeDriver();
-        driver.get("https://rahulshettyacademy.com/seleniumPractise/#/");
+      landingPage.getMeGreenKartLandingPage();
     }
     @When("User searched with Shortname {string} and extracted actual name of product")
     public void user_searched_with_shortname_and_extracted_actual_name_of_product(String ShortName) throws InterruptedException {

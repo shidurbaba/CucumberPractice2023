@@ -22,10 +22,12 @@ public class OfferPageStepDefinition {
     public OfferPageStepDefinition(TestContextStepUp contextStepUp)
     {
         this.testContextStepUp = contextStepUp;
+        this.offersPage = testContextStepUp.offersPage;
     }
     @Then("User searched for {string} shortname in offers page")
     public void user_searched_for_same_shortname_in_offers_page_to_check_if_product_exist_with_same_name(String ShortName) throws InterruptedException {
-        offersPage.switchToOfferPage();
+        offersPage.topResultsClick();
+        SwitchToChild();
         offersPage.searchItem(ShortName);
         Thread.sleep(2000);
         offerPageProductName = offersPage.extractedSearchResult();
@@ -34,7 +36,13 @@ public class OfferPageStepDefinition {
     @Then("validate product name in offers page matches with Landing Page")
     public void validate_product_name_in_offers_page_matches_with_landing_page() {
         Assert.assertEquals(offerPageProductName, testContextStepUp.landingPageProductName);
+        System.out.println(offerPageProductName + "--vs---" + testContextStepUp.landingPageProductName);
+        driver.quit();
     }
 
+    public void SwitchToChild()
+    {
+        testContextStepUp.utils.SwitchWindowToChild();
+    }
 
 }
