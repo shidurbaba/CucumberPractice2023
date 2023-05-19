@@ -4,7 +4,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.WebDriver;
 import pageObjects.LandingPage;
-import pageObjects.PageObjectManager;
+import utils.PageObjectManager;
 import utils.TestContextStepUp;
 
 public class LandingPageStepDefinition {

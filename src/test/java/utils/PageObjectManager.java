@@ -1,6 +1,8 @@
-package pageObjects;
+package utils;
 
 import org.openqa.selenium.WebDriver;
+import pageObjects.LandingPage;
+import pageObjects.OffersPage;
 
 public class PageObjectManager {
 

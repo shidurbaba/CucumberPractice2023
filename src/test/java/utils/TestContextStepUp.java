@@ -1,7 +1,6 @@
 package utils;
 
 import org.openqa.selenium.WebDriver;
-import pageObjects.PageObjectManager;
 
 public class TestContextStepUp {
 
