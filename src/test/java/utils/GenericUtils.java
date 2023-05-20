@@ -15,6 +15,8 @@ public class GenericUtils {
     public WebDriver driver;
     public WebDriverWait webDriverWait;
 
+
+
     public GenericUtils(WebDriver driver)
     {
         this.driver = driver;
