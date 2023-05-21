@@ -47,3 +47,5 @@ Create classes that are loosely coupled
 we can solve it using dependency injections like Picocontainer
 
 Factory Design Pattern:
+
+Hooks - Used for precondition and postcondition cleanups after test execution

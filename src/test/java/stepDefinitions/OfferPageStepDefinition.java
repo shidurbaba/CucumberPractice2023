@@ -36,7 +36,7 @@ public class OfferPageStepDefinition {
     public void validate_product_name_in_offers_page_matches_with_landing_page() {
         System.out.println(offerPageProductName + "--vs---" + testContextStepUp.landingPageProductName);
         Assert.assertEquals(offerPageProductName, testContextStepUp.landingPageProductName);
-        testContextStepUp.driver.quit();
+        //testContextStepUp.driver.quit();
     }
 
     public void SwitchToChild()

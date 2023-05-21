@@ -5,6 +5,8 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.edge.EdgeOptions;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
 
 import java.io.IOException;
 import java.util.Properties;
@@ -15,6 +17,8 @@ public class WebDriveManager {
     public ChromeOptions chromeOptions;
 
     public EdgeOptions edgeOptions;
+
+    public FirefoxOptions firefoxOptions;
 
     public Properties properties;
 
@@ -47,6 +51,19 @@ public class WebDriveManager {
                 driver = new EdgeDriver(edgeOptions);
             }
             break;
+        case "firefox":
+            if (driver == null) {
+                this.firefoxOptions = new FirefoxOptions();
+                firefoxOptions.addArguments("--private");
+                firefoxOptions.addArguments("--start-maximized");
+                firefoxOptions.addArguments("--ignore-certificate-errors");
+                firefoxOptions.addArguments("--disable-gpu");
+                firefoxOptions.addArguments("--disable-popup-blocking");
+                //edgeOptions.addArguments("--headless");
+                driver = new FirefoxDriver(firefoxOptions);
+            }
+            break;
+
     }
          return driver;
     }
