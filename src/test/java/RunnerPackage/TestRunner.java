@@ -7,11 +7,11 @@ import org.testng.annotations.DataProvider;
 
 
 @CucumberOptions(
-        features = "C:\\Users\\moses\\IdeaProjects\\CucumberPractice2023\\src\\test\\java\\feature\\VegetableCart.feature",
+        features = "C:\\Users\\moses\\IdeaProjects\\CucumberPractice2023\\src\\test\\java\\feature\\VegetableCartPartTwo.feature",
         glue = {"stepDefinitions"},
         plugin = {"pretty","html:target/cucumber.html","json:target/cucumber.json"},
         monochrome = true,
-        dryRun = false
+        dryRun = true
 )
 public class TestRunner extends AbstractTestNGCucumberTests {
     @Override
