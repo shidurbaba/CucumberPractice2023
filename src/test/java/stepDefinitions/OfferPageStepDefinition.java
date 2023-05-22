@@ -23,7 +23,7 @@ public class OfferPageStepDefinition {
         this.testContextStepUp = contextStepUp;
         this.offersPage = testContextStepUp.offersPage;
     }
-    @Then("User searched for {string} shortname in offers page")
+    @Then("^User searched for (.+) shortname in offers page$")
     public void user_searched_for_same_shortname_in_offers_page_to_check_if_product_exist_with_same_name(String ShortName) throws InterruptedException {
         offersPage.topResultsClick();
         SwitchToChild();

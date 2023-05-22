@@ -25,7 +25,7 @@ public class LandingPageStepDefinition {
     public void user_is_on_green_cart_landing_page() {
       landingPage.getMeGreenKartLandingPage();
     }
-    @When("User searched with Shortname {string} and extracted actual name of product")
+    @When("^User searched with Shortname (.+) and extracted actual name of product$")
     public void user_searched_with_shortname_and_extracted_actual_name_of_product(String ShortName) throws InterruptedException {
         landingPage.searchItem(ShortName);
         Thread.sleep(2000);
@@ -34,7 +34,6 @@ public class LandingPageStepDefinition {
         System.out.println(testContextStepUp.landingPageProductName + " is extracted from Home page");
 
     }
-
 
 
 }
