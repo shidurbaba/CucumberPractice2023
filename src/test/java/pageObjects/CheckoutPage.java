@@ -9,8 +9,7 @@ public class CheckoutPage {
 
     public WebDriver driver;
     //Instantiate an object
-    public CheckoutPage(WebDriver driver)
-    {
+    public CheckoutPage(WebDriver driver) {
 
         this.driver = driver;
         PageFactory.initElements(driver,this);
@@ -25,16 +24,16 @@ public class CheckoutPage {
     @FindBy(css=".promoBtn")
     WebElement applyPromoBtn;
 
-    @FindBy(xpath = "//button[contains(text(),'Place Order' )]")
+    @FindBy(xpath = "//button[contains(text(),'Place Order')]")
     WebElement placeOrderButton;
 
-    public void CheckoutItems()
-    {
+    public void CheckoutItems() throws InterruptedException {
         cartBag.click();
         checkoutButton.click();
     }
 
-    public Boolean VerifyPromoBtn(){return applyPromoBtn.isDisplayed();}
+    public Boolean VerifyPromoBtn(){
+        return applyPromoBtn.isDisplayed();}
 
     public Boolean VerifyPlaceOrderBtn(){return placeOrderButton.isDisplayed();}
 

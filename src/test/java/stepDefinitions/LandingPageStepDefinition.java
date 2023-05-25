@@ -39,6 +39,8 @@ public class LandingPageStepDefinition {
     }
     @And("Added {string} items of the selected product to cart")
     public void addedItemsOfTheSelectedProductToCart(String quantity) {
+
+        landingPage.incrementQuantity(Integer.parseInt(quantity));
     }
 
 }

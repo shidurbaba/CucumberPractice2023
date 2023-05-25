@@ -9,6 +9,8 @@ import pageObjects.LandingPage;
 import utils.PageObjectManager;
 import utils.TestContextStepUp;
 
+import java.io.IOException;
+
 public class CheckoutPageStepDefinitions {
 
     public WebDriver driver;
@@ -17,16 +19,16 @@ public class CheckoutPageStepDefinitions {
     LandingPage landingPage;
     TestContextStepUp testContextStepUp;
     PageObjectManager pageObjectManager;
-    public CheckoutPageStepDefinitions(TestContextStepUp contextStepUp)
-    {
+    public CheckoutPageStepDefinitions(TestContextStepUp contextStepUp) throws IOException {
         this.testContextStepUp = contextStepUp;
         this.checkoutPage = testContextStepUp.pageObjectManager.getCheckoutPage();
 
     }
 
 
-    @Then("^User proceeds to Checkout and validate the (.+) items in checkout page$")
-    public void userProceedsToCheckoutAndValidateTheNameItemsInCheckoutPage() {
+    @Then("^User proceeds to Checkout and validate the items in checkout page$")
+    public void userProceedsToCheckoutAndValidateTheNameItemsInCheckoutPage() throws InterruptedException {
+
         checkoutPage.CheckoutItems();
         //Assertion to extract name from screen and compare with name
     }

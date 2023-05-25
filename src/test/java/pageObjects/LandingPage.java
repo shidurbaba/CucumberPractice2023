@@ -12,6 +12,9 @@ public class LandingPage {
     private By productName = By.cssSelector("h4.product-name");
 
     @FindBy (css = ".increment")
+    WebElement increment;
+
+    @FindBy (css = ".product-action")
     WebElement addToCart;
 
     public WebDriver driver;
@@ -41,6 +44,20 @@ public class LandingPage {
     public String getTitleLandingPage()
     {
         return driver.getTitle();
+    }
+
+    public void incrementQuantity(int quantity)
+    {
+        int i = quantity-1;
+        while(i>0)
+        {
+            increment.click();
+            i--;
+        }
+    }
+    public void addToCartMethod()
+    {
+        addToCart.click();
     }
 
 }

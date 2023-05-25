@@ -38,8 +38,7 @@ public class PageObjectManager {
         return offersPage;
     }
 
-    public CheckoutPage getCheckoutPage()
-    {
+    public CheckoutPage getCheckoutPage() throws IOException {
         checkoutPage = new CheckoutPage(driver);
         return checkoutPage;
     }

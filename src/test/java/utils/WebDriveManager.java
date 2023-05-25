@@ -9,6 +9,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 
 import java.io.IOException;
+import java.time.Duration;
 import java.util.Properties;
 
 public class WebDriveManager {
@@ -38,6 +39,7 @@ public class WebDriveManager {
                 chromeOptions.addArguments("--disable-gpu");
                 //chromeOptions.addArguments("--headless");
                 driver = new ChromeDriver(chromeOptions);
+                driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
             }
             break;
         case "edge":
@@ -49,6 +51,7 @@ public class WebDriveManager {
                 edgeOptions.addArguments("--disable-gpu");
                 //edgeOptions.addArguments("--headless");
                 driver = new EdgeDriver(edgeOptions);
+                driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
             }
             break;
         case "firefox":
@@ -61,6 +64,7 @@ public class WebDriveManager {
                 firefoxOptions.addArguments("--disable-popup-blocking");
                 //edgeOptions.addArguments("--headless");
                 driver = new FirefoxDriver(firefoxOptions);
+                driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
             }
             break;
 
