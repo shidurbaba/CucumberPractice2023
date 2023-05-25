@@ -1,6 +1,7 @@
 package utils;
 
 import org.openqa.selenium.WebDriver;
+import pageObjects.CheckoutPage;
 import pageObjects.LandingPage;
 import pageObjects.OffersPage;
 
@@ -12,6 +13,9 @@ public class PageObjectManager {
 
     public LandingPage landingPage;
     public OffersPage offersPage;
+
+    public CheckoutPage checkoutPage;
+
     public WebDriver driver;
 
     public Properties properties;
@@ -33,6 +37,13 @@ public class PageObjectManager {
         offersPage = new OffersPage(driver);
         return offersPage;
     }
+
+    public CheckoutPage getCheckoutPage()
+    {
+        checkoutPage = new CheckoutPage(driver);
+        return checkoutPage;
+    }
+
     public Properties getProperties() throws IOException {
         this.fileInputStream = new FileInputStream(System.getProperty("user.dir")+"//src//test//resources//global.properties");
         this.properties = new Properties();

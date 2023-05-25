@@ -44,4 +44,5 @@ public class OfferPageStepDefinition {
         testContextStepUp.utils.SwitchWindowToChild();
     }
 
+
 }
