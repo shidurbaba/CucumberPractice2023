@@ -7,7 +7,8 @@ import org.testng.Assert;
 import pageObjects.CheckoutPage;
 import pageObjects.LandingPage;
 import utils.PageObjectManager;
-import utils.TestContextStepUp;
+import utils.TestContextSetUp;
+
 
 import java.io.IOException;
 
@@ -17,11 +18,11 @@ public class CheckoutPageStepDefinitions {
     public String landingPageProductName;
     public CheckoutPage checkoutPage;
     LandingPage landingPage;
-    TestContextStepUp testContextStepUp;
+    TestContextSetUp testContextStepUp;
     PageObjectManager pageObjectManager;
-    public CheckoutPageStepDefinitions(TestContextStepUp contextStepUp) throws IOException {
+    public CheckoutPageStepDefinitions(TestContextSetUp contextStepUp) throws IOException {
         this.testContextStepUp = contextStepUp;
-        this.checkoutPage = testContextStepUp.pageObjectManager.getCheckoutPage();
+        this.checkoutPage = pageObjectManager.getCheckoutPage();
 
     }
 

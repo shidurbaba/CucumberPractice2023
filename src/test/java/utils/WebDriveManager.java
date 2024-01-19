@@ -7,70 +7,75 @@ import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
+import org.openqa.selenium.MutableCapabilities;
 
-import java.io.IOException;
 import java.time.Duration;
 import java.util.Properties;
 
 public class WebDriveManager {
 
-    public WebDriver driver;
-    public ChromeOptions chromeOptions;
+    private static WebDriver driver;
+    private static final Object lock = new Object();
 
-    public EdgeOptions edgeOptions;
-
-    public FirefoxOptions firefoxOptions;
-
-    public Properties properties;
-
-    public PageObjectManager pageObjectManager;
-    public  WebDriver WebDriveManager() throws IOException {
-      this.pageObjectManager = new PageObjectManager(driver);
-      this.properties = pageObjectManager.getProperties();
-
-    switch (properties.getProperty("browser"))
-    {
-        case "chrome":
+    public WebDriver getDriver(Properties properties) {
+        synchronized (lock) {
             if (driver == null) {
-                this.chromeOptions = new ChromeOptions();
-                chromeOptions.addArguments("--incognito");
-                chromeOptions.addArguments("--start-maximized");
-                chromeOptions.addArguments("--ignore-certificate-errors");
-                chromeOptions.addArguments("--disable-gpu");
-                //chromeOptions.addArguments("--headless");
+                initializeDriver(properties);
+            }
+        }
+        return driver;
+    }
+
+    private void initializeDriver(Properties properties) {
+        String browser = properties.getProperty("browser");
+        switch (browser) {
+            case "chrome":
+                ChromeOptions chromeOptions = new ChromeOptions();
+                addCommonOptions(chromeOptions);
                 driver = new ChromeDriver(chromeOptions);
-                driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-            }
-            break;
-        case "edge":
-            if (driver == null) {
-                this.edgeOptions = new EdgeOptions();
-                edgeOptions.addArguments("--incognito");
-                edgeOptions.addArguments("--start-maximized");
-                edgeOptions.addArguments("--ignore-certificate-errors");
-                edgeOptions.addArguments("--disable-gpu");
-                //edgeOptions.addArguments("--headless");
+                break;
+            case "edge":
+                EdgeOptions edgeOptions = new EdgeOptions();
+                addCommonOptions(edgeOptions);
                 driver = new EdgeDriver(edgeOptions);
-                driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-            }
-            break;
-        case "firefox":
-            if (driver == null) {
-                this.firefoxOptions = new FirefoxOptions();
-                firefoxOptions.addArguments("--private");
-                firefoxOptions.addArguments("--start-maximized");
-                firefoxOptions.addArguments("--ignore-certificate-errors");
-                firefoxOptions.addArguments("--disable-gpu");
-                firefoxOptions.addArguments("--disable-popup-blocking");
-                //edgeOptions.addArguments("--headless");
+                break;
+            case "firefox":
+                FirefoxOptions firefoxOptions = new FirefoxOptions();
+                addCommonOptions(firefoxOptions);
                 driver = new FirefoxDriver(firefoxOptions);
-                driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-            }
-            break;
+                break;
+            default:
+                throw new IllegalArgumentException("Browser [" + browser + "] is not supported.");
+        }
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+    }
 
+    private void addCommonOptions(ChromeOptions options) {
+        options.addArguments("--incognito");
+        options.addArguments("--start-maximized");
+        options.addArguments("--ignore-certificate-errors");
+        options.addArguments("--disable-gpu");
+        // Uncomment the next line if headless mode is desired
+        // options.addArguments("--headless");
     }
-         return driver;
+
+    private void addCommonOptions(EdgeOptions options) {
+        options.addArguments("--incognito");
+        options.addArguments("--start-maximized");
+        options.addArguments("--ignore-certificate-errors");
+        options.addArguments("--disable-gpu");
+        // options.addArguments("--headless");
     }
+
+    private void addCommonOptions(FirefoxOptions options) {
+        options.addArguments("--private");
+        options.addArguments("--start-maximized");
+        options.addArguments("--ignore-certificate-errors");
+        options.addArguments("--disable-gpu");
+        // options.addArguments("--disable-popup-blocking");
+        // options.addArguments("--headless");
+    }
+
 
 
 }

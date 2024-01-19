@@ -11,43 +11,47 @@ import java.util.Properties;
 
 public class PageObjectManager {
 
-    public LandingPage landingPage;
-    public OffersPage offersPage;
+    private LandingPage landingPage;
+    private OffersPage offersPage;
+    private CheckoutPage checkoutPage;
+    private WebDriver driver;
+    private Properties properties;
 
-    public CheckoutPage checkoutPage;
-
-    public WebDriver driver;
-
-    public Properties properties;
-
-    public FileInputStream fileInputStream;
-    public PageObjectManager (WebDriver driver)
-    {
+    public PageObjectManager(WebDriver driver) {
         this.driver = driver;
     }
 
-    public LandingPage getLandingPage()
-    {
-        landingPage = new LandingPage(driver);
+    public LandingPage getLandingPage() {
+        if (landingPage == null) {
+            landingPage = new LandingPage(driver);
+        }
         return landingPage;
     }
 
-    public OffersPage getOffersPage()
-    {
-        offersPage = new OffersPage(driver);
+    public OffersPage getOffersPage() {
+        if (offersPage == null) {
+            offersPage = new OffersPage(driver);
+        }
         return offersPage;
     }
 
-    public CheckoutPage getCheckoutPage() throws IOException {
-        checkoutPage = new CheckoutPage(driver);
+    public CheckoutPage getCheckoutPage() {
+        if (checkoutPage == null) {
+            checkoutPage = new CheckoutPage(driver);
+        }
         return checkoutPage;
     }
 
-    public Properties getProperties() throws IOException {
-        this.fileInputStream = new FileInputStream(System.getProperty("user.dir")+"//src//test//resources//global.properties");
-        this.properties = new Properties();
-        properties.load(fileInputStream);
-        return  properties;
+    public Properties getProperties() {
+        if (properties == null) {
+            String propertiesPath = System.getProperty("user.dir") + "//src//test//resources//global.properties";
+            try (FileInputStream fileInputStream = new FileInputStream(propertiesPath)) {
+                properties = new Properties();
+                properties.load(fileInputStream);
+            } catch (IOException e) {
+                // Handle exception: log it, throw a custom exception, etc.
+            }
+        }
+        return properties;
     }
-
 }

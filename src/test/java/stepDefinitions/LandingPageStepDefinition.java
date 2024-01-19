@@ -7,16 +7,17 @@ import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import pageObjects.LandingPage;
 import utils.PageObjectManager;
-import utils.TestContextStepUp;
+import utils.TestContextSetUp;
+
 
 public class LandingPageStepDefinition {
 
     public WebDriver driver;
     public String landingPageProductName;
     LandingPage landingPage;
-    TestContextStepUp testContextStepUp;
+    TestContextSetUp testContextStepUp;
     PageObjectManager pageObjectManager;
-    public LandingPageStepDefinition(TestContextStepUp contextStepUp)
+    public LandingPageStepDefinition(TestContextSetUp contextStepUp)
     {
         this.testContextStepUp = contextStepUp;
         this.landingPage = testContextStepUp.landingPage;
@@ -32,9 +33,9 @@ public class LandingPageStepDefinition {
     public void user_searched_with_shortname_and_extracted_actual_name_of_product(String ShortName) throws InterruptedException {
         landingPage.searchItem(ShortName);
         Thread.sleep(2000);
-        testContextStepUp.landingPageProductName = landingPage.getTrimSearchResult();
+        landingPageProductName = landingPage.getTrimSearchResult();
 
-        System.out.println(testContextStepUp.landingPageProductName + " is extracted from Home page");
+        System.out.println(landingPageProductName + " is extracted from Home page");
 
     }
     @And("Added {string} items of the selected product to cart")

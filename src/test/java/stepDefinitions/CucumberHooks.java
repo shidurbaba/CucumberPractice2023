@@ -2,16 +2,17 @@ package stepDefinitions;
 
 import io.cucumber.java.After;
 import org.openqa.selenium.WebDriver;
-import utils.TestContextStepUp;
+import utils.TestContextSetUp;
+
 
 import java.io.IOException;
 
 public class CucumberHooks {
 
-    public TestContextStepUp testContextStepUp;
+    public TestContextSetUp testContextStepUp;
     public WebDriver driver;
 
-    public  CucumberHooks ( TestContextStepUp testContextStepUp) throws IOException {
+    public  CucumberHooks ( TestContextSetUp testContextStepUp) throws IOException {
         this.testContextStepUp = testContextStepUp;
 
     }
@@ -20,6 +21,6 @@ public class CucumberHooks {
 
     @After
     public void AfterScenario() throws IOException {
-        testContextStepUp.webDriveManager.WebDriveManager().quit();
+        driver.quit();
     }
 }
