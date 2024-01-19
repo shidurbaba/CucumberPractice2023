@@ -11,9 +11,9 @@ import java.util.Properties;
 
 public class PageObjectManager {
 
-    private LandingPage landingPage;
-    private OffersPage offersPage;
-    private CheckoutPage checkoutPage;
+    public LandingPage landingPage;
+    public OffersPage offersPage;
+    public CheckoutPage checkoutPage;
 
     public WebDriver driver;
     private Properties properties;

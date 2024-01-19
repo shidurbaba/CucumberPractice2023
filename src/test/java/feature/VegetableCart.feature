@@ -10,4 +10,6 @@ Feature: Search and Place the order for Products
     Examples:
     |Name|
     | Tom   |
-    | Straw  |
+    | Straw |
+    | Car      |
+    | Ban      |

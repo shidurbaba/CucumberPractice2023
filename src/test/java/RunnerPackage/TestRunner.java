@@ -10,7 +10,7 @@ import org.testng.annotations.DataProvider;
         features = "C:\\Users\\moses\\IdeaProjects\\CucumberPractice2023\\src\\test\\java\\feature",
         glue = {"stepDefinitions"},
         plugin = {"pretty","html:target/cucumber.html","json:target/cucumber.json"},
-        tags = "@ValidateSearch&Place",
+        tags = "@Checkout",
         monochrome = true,
         dryRun = false
 )

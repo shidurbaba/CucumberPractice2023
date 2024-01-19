@@ -12,11 +12,13 @@ import java.util.Properties;
 
 public class TestContextSetUp {
 
-    private WebDriver driver;
+    public WebDriver driver;
     public WebDriveManager webDriveManager;
     public PageObjectManager pageObjectManager;
     public GenericUtils utils;
     public LandingPage landingPage;
+
+    public String landingPageProductName;
     public OffersPage offersPage;
 
     public CheckoutPage checkoutPage;
