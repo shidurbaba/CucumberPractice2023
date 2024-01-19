@@ -9,18 +9,19 @@ import java.io.IOException;
 
 public class CucumberHooks {
 
-    public TestContextSetUp testContextStepUp;
-    public WebDriver driver;
+    private WebDriver driver;
 
-    public  CucumberHooks ( TestContextSetUp testContextStepUp) throws IOException {
-        this.testContextStepUp = testContextStepUp;
+    public  CucumberHooks ( TestContextSetUp contextStepUp) throws IOException {
+        this.driver = contextStepUp.webDriveManager.driver;
 
     }
 
 
 
     @After
-    public void AfterScenario() throws IOException {
-        driver.quit();
+    public void AfterScenario() {
+        if (driver != null) {
+            driver.quit();
+        }
     }
 }

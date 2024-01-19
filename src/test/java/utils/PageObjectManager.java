@@ -14,10 +14,12 @@ public class PageObjectManager {
     private LandingPage landingPage;
     private OffersPage offersPage;
     private CheckoutPage checkoutPage;
-    private WebDriver driver;
+
+    public WebDriver driver;
     private Properties properties;
 
     public PageObjectManager(WebDriver driver) {
+
         this.driver = driver;
     }
 

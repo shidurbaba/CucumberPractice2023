@@ -14,7 +14,7 @@ import java.util.Properties;
 
 public class WebDriveManager {
 
-    private static WebDriver driver;
+    public WebDriver driver;
     private static final Object lock = new Object();
 
     public WebDriver getDriver(Properties properties) {
