@@ -14,7 +14,7 @@ import java.util.Properties;
 
 public class WebDriveManager {
 
-    private static WebDriver driver;
+    public WebDriver driver;
     private static final Object lock = new Object();
 
     public WebDriver getDriver(Properties properties) {
@@ -64,7 +64,7 @@ public class WebDriveManager {
         options.addArguments("--start-maximized");
         options.addArguments("--ignore-certificate-errors");
         options.addArguments("--disable-gpu");
-        // options.addArguments("--headless");
+        options.addArguments("--headless");
     }
 
     private void addCommonOptions(FirefoxOptions options) {
@@ -73,7 +73,7 @@ public class WebDriveManager {
         options.addArguments("--ignore-certificate-errors");
         options.addArguments("--disable-gpu");
         // options.addArguments("--disable-popup-blocking");
-        // options.addArguments("--headless");
+         options.addArguments("--headless");
     }
 
 

@@ -1,21 +1,27 @@
 package utils;
 
 import org.openqa.selenium.WebDriver;
+import pageObjects.CheckoutPage;
 import pageObjects.LandingPage;
 import pageObjects.OffersPage;
 
+import java.awt.*;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
 
 public class TestContextSetUp {
 
-    private WebDriver driver;
+    public WebDriver driver;
     public WebDriveManager webDriveManager;
     public PageObjectManager pageObjectManager;
     public GenericUtils utils;
     public LandingPage landingPage;
+
+    public String landingPageProductName;
     public OffersPage offersPage;
+
+    public CheckoutPage checkoutPage;
     public Properties properties;
 
     public TestContextSetUp() {
@@ -29,6 +35,7 @@ public class TestContextSetUp {
         utils = new GenericUtils(driver);
         landingPage = pageObjectManager.getLandingPage();
         offersPage = pageObjectManager.getOffersPage();
+        checkoutPage = pageObjectManager.getCheckoutPage();
     }
 
     private Properties loadProperties() {
