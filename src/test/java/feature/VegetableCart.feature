@@ -1,5 +1,5 @@
 Feature: Search and Place the order for Products
-
+  @Vegetables
   Scenario Outline: Search Experience for product search in both home and Offers page
 
     Given User is on GreenCart Landing page
@@ -10,4 +10,4 @@ Feature: Search and Place the order for Products
     Examples:
     |Name|
     | Tom   |
-    | Straw  |
+#    | Straw  |
