@@ -33,6 +33,7 @@ public class CheckoutPageStepDefinitions {
     public void userProceedsToCheckoutAndValidateTheNameItemsInCheckoutPage() throws InterruptedException {
 
         checkoutPage.CheckoutItems();
+        Thread.sleep(2000);
         //Assertion to extract name from screen and compare with name
     }
 

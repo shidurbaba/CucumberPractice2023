@@ -11,5 +11,3 @@ Feature: Search and Place the order for Products
     |Name|
     | Tom   |
     | Straw |
-    | Car      |
-    | Ban      |

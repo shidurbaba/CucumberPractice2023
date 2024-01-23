@@ -28,6 +28,7 @@ public class WebDriveManager {
 
     private void initializeDriver(Properties properties) {
         String browser = properties.getProperty("browser");
+        String headlessMode = properties.getProperty("true");
         switch (browser) {
             case "chrome":
                 ChromeOptions chromeOptions = new ChromeOptions();
@@ -64,7 +65,7 @@ public class WebDriveManager {
         options.addArguments("--start-maximized");
         options.addArguments("--ignore-certificate-errors");
         options.addArguments("--disable-gpu");
-        options.addArguments("--headless");
+        //options.addArguments("--headless");
     }
 
     private void addCommonOptions(FirefoxOptions options) {
@@ -73,7 +74,7 @@ public class WebDriveManager {
         options.addArguments("--ignore-certificate-errors");
         options.addArguments("--disable-gpu");
         // options.addArguments("--disable-popup-blocking");
-         options.addArguments("--headless");
+       //  options.addArguments("--headless");
     }
 
 
