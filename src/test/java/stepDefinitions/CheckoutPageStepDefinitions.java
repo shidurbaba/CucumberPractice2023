@@ -23,7 +23,7 @@ public class CheckoutPageStepDefinitions {
     public CheckoutPageStepDefinitions(TestContextSetUp contextStepUp) throws IOException {
         this.testContextStepUp = contextStepUp;
         //this.checkoutPage = pageObjectManager.getCheckoutPage();
-        this.checkoutPage = testContextStepUp.checkoutPage;
+        this.checkoutPage = testContextStepUp.pageObjectManager.getCheckoutPage();
 
 
     }

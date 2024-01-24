@@ -16,11 +16,11 @@ public class LandingPageStepDefinition {
     public String landingPageProductName;
     LandingPage landingPage;
     TestContextSetUp testContextStepUp;
-    PageObjectManager pageObjectManager;
+
     public LandingPageStepDefinition(TestContextSetUp contextStepUp)
     {
         this.testContextStepUp = contextStepUp;
-        this.landingPage = testContextStepUp.landingPage;
+        this.landingPage = testContextStepUp.pageObjectManager.getLandingPage();
 
     }
 
@@ -42,6 +42,7 @@ public class LandingPageStepDefinition {
     public void addedItemsOfTheSelectedProductToCart(String quantity) {
 
         landingPage.incrementQuantity(Integer.parseInt(quantity));
+        landingPage.addToCartMethod();
     }
 
 }

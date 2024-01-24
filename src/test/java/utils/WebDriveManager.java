@@ -1,5 +1,6 @@
 package utils;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -28,21 +29,36 @@ public class WebDriveManager {
 
     private void initializeDriver(Properties properties) {
         String browser = properties.getProperty("browser");
-        String headlessMode = properties.getProperty("true");
+        boolean isHeadless = Boolean.parseBoolean(properties.getProperty("headlessMode"));
+
         switch (browser) {
             case "chrome":
+                WebDriverManager.chromedriver().setup();
                 ChromeOptions chromeOptions = new ChromeOptions();
                 addCommonOptions(chromeOptions);
+                if(isHeadless)
+                {
+                    chromeOptions.addArguments("--headless");
+
+                }
                 driver = new ChromeDriver(chromeOptions);
                 break;
             case "edge":
                 EdgeOptions edgeOptions = new EdgeOptions();
                 addCommonOptions(edgeOptions);
+                if(isHeadless)
+                {
+                    edgeOptions.addArguments("--headless");
+                }
                 driver = new EdgeDriver(edgeOptions);
                 break;
             case "firefox":
                 FirefoxOptions firefoxOptions = new FirefoxOptions();
                 addCommonOptions(firefoxOptions);
+                if(isHeadless)
+                {
+                    firefoxOptions.addArguments("--headless");
+                }
                 driver = new FirefoxDriver(firefoxOptions);
                 break;
             default:

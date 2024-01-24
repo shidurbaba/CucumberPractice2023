@@ -16,12 +16,7 @@ public class TestContextSetUp {
     public WebDriveManager webDriveManager;
     public PageObjectManager pageObjectManager;
     public GenericUtils utils;
-    public LandingPage landingPage;
-
     public String landingPageProductName;
-    public OffersPage offersPage;
-
-    public CheckoutPage checkoutPage;
     public Properties properties;
 
     public TestContextSetUp() {
@@ -33,9 +28,6 @@ public class TestContextSetUp {
         driver = webDriveManager.getDriver(properties);
         pageObjectManager = new PageObjectManager(driver);
         utils = new GenericUtils(driver);
-        landingPage = pageObjectManager.getLandingPage();
-        offersPage = pageObjectManager.getOffersPage();
-        checkoutPage = pageObjectManager.getCheckoutPage();
     }
 
     private Properties loadProperties() {
