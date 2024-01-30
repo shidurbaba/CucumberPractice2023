@@ -5,6 +5,7 @@ import io.cucumber.java.After;
 import io.cucumber.java.AfterStep;
 import io.cucumber.java.Scenario;
 import io.github.bonigarcia.wdm.WebDriverManager;
+import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
@@ -61,13 +62,9 @@ public class CucumberHooks {
        // Take a screenshot for every step (or you can modify it to capture only on failure)
        if(scenario.isFailed())
        {
-           final byte[] screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
-
-           // Attach it to the Cucumber scenario
-           scenario.attach(screenshot, "image/png", scenario.getName());
-
-           // Attach it to the Extent Report
-           ExtentCucumberAdapter.addTestStepScreenCaptureFromPath("data:image/png;base64," + new String(screenshot));
+           File sourcePath = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+            byte[] fileContent = FileUtils.readFileToByteArray(sourcePath);
+           scenario.attach(fileContent,"image/png","image");
        }
 
 
