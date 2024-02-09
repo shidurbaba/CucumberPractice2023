@@ -37,26 +37,6 @@ public class CucumberHooks {
         }
     }
 
-   /* @AfterStep
-    public void AddScreenShot(){
-        System.out.println("screen shot test");
-    }*/
- /*   @AfterStep
-    public void addScreenshot(Scenario scenario) {
-        if (scenario.isFailed()) { // or remove this if block if you want to capture screenshots for every step
-            // Take the screenshot
-            File screenshotFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-
-            // Attach it to the report
-            try {
-                Path screenshotPath = Paths.get("./screenshots", screenshotFile.getName());
-                Files.copy(screenshotFile.toPath(), screenshotPath);
-                ExtentCucumberAdapter.addTestStepScreenCaptureFromPath(screenshotPath.toString());
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-    }*/
    @AfterStep
    public void addScreenshot(Scenario scenario) throws IOException {
        // Take a screenshot for every step (or you can modify it to capture only on failure)
@@ -69,25 +49,5 @@ public class CucumberHooks {
 
 
    }
-/*    @AfterStep
-    public void addScreenshot(Scenario scenario) throws IOException {
-        if (scenario.isFailed()) {
-            // Define screenshot path
-            String screenshotDir = "test-output/ExtentReport/FailedScenarios";
-            String screenshotName = "FAILED_" + scenario.getId() + ".png";
-            Path screenshotPath = Paths.get(screenshotDir + screenshotName);
 
-            // Create directories if they don't exist
-            if (!Files.exists(screenshotPath.getParent())) {
-                Files.createDirectories(screenshotPath.getParent());
-            }
-
-            // Take and save the screenshot
-            File screenshotFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-            Files.copy(screenshotFile.toPath(), screenshotPath, StandardCopyOption.REPLACE_EXISTING);
-
-            // Attach screenshot to Extent Reports
-            ExtentCucumberAdapter.addTestStepScreenCaptureFromPath(screenshotPath.toString());
-        }
-    }*/
 }
