@@ -28,8 +28,12 @@ public class WebDriveManager {
     }
 
     private void initializeDriver(Properties properties) {
-        String browser = properties.getProperty("browser");
+        String browser_properties = properties.getProperty("browser");
+        String browser_maven = System.getProperty("browser");
         boolean isHeadless = Boolean.parseBoolean(properties.getProperty("headlessMode"));
+
+        //Java ternary properties - if the condition is 'true' value 1 else value 2.
+        String browser = browser_maven!=null ? browser_maven : browser_properties;
 
         switch (browser) {
             case "chrome":
@@ -72,8 +76,7 @@ public class WebDriveManager {
         options.addArguments("--start-maximized");
         options.addArguments("--ignore-certificate-errors");
         options.addArguments("--disable-gpu");
-        // Uncomment the next line if headless mode is desired
-        // options.addArguments("--headless");
+
     }
 
     private void addCommonOptions(EdgeOptions options) {
@@ -81,7 +84,6 @@ public class WebDriveManager {
         options.addArguments("--start-maximized");
         options.addArguments("--ignore-certificate-errors");
         options.addArguments("--disable-gpu");
-        //options.addArguments("--headless");
     }
 
     private void addCommonOptions(FirefoxOptions options) {
@@ -89,8 +91,7 @@ public class WebDriveManager {
         options.addArguments("--start-maximized");
         options.addArguments("--ignore-certificate-errors");
         options.addArguments("--disable-gpu");
-        // options.addArguments("--disable-popup-blocking");
-       //  options.addArguments("--headless");
+
     }
 
 
