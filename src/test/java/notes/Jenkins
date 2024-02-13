@@ -1,0 +1,8 @@
+Jenkin Notes
+
+Parameterized
+In your Jenkins configuration select - This project is parameterized options - Next Set your parameters by selecting
+"Choice Parameter" --> Name: browser Name" tags --> Choice: name of browsers/bame of tags
+
+Under Build Steps - Invoke top-level Maven targets
+1. test -Dcucumber.filters.tags="@"$tags"" -Dbrowser="$browser"
