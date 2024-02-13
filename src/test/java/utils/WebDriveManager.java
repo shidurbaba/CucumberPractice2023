@@ -1,5 +1,6 @@
 package utils;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -27,21 +28,41 @@ public class WebDriveManager {
     }
 
     private void initializeDriver(Properties properties) {
-        String browser = properties.getProperty("browser");
+        String browser_properties = properties.getProperty("browser");
+        String browser_maven = System.getProperty("browser");
+        boolean isHeadless = Boolean.parseBoolean(properties.getProperty("headlessMode"));
+
+        //Java ternary properties - if the condition is 'true' value 1 else value 2.
+        String browser = browser_maven!=null ? browser_maven : browser_properties;
+
         switch (browser) {
             case "chrome":
+                WebDriverManager.chromedriver().setup();
                 ChromeOptions chromeOptions = new ChromeOptions();
                 addCommonOptions(chromeOptions);
+                if(isHeadless)
+                {
+                    chromeOptions.addArguments("--headless");
+
+                }
                 driver = new ChromeDriver(chromeOptions);
                 break;
             case "edge":
                 EdgeOptions edgeOptions = new EdgeOptions();
                 addCommonOptions(edgeOptions);
+                if(isHeadless)
+                {
+                    edgeOptions.addArguments("--headless");
+                }
                 driver = new EdgeDriver(edgeOptions);
                 break;
             case "firefox":
                 FirefoxOptions firefoxOptions = new FirefoxOptions();
                 addCommonOptions(firefoxOptions);
+                if(isHeadless)
+                {
+                    firefoxOptions.addArguments("--headless");
+                }
                 driver = new FirefoxDriver(firefoxOptions);
                 break;
             default:
@@ -55,8 +76,7 @@ public class WebDriveManager {
         options.addArguments("--start-maximized");
         options.addArguments("--ignore-certificate-errors");
         options.addArguments("--disable-gpu");
-        // Uncomment the next line if headless mode is desired
-        // options.addArguments("--headless");
+
     }
 
     private void addCommonOptions(EdgeOptions options) {
@@ -64,7 +84,6 @@ public class WebDriveManager {
         options.addArguments("--start-maximized");
         options.addArguments("--ignore-certificate-errors");
         options.addArguments("--disable-gpu");
-        options.addArguments("--headless");
     }
 
     private void addCommonOptions(FirefoxOptions options) {
@@ -72,8 +91,7 @@ public class WebDriveManager {
         options.addArguments("--start-maximized");
         options.addArguments("--ignore-certificate-errors");
         options.addArguments("--disable-gpu");
-        // options.addArguments("--disable-popup-blocking");
-         options.addArguments("--headless");
+
     }
 
 

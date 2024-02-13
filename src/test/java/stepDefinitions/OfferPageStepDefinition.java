@@ -17,13 +17,11 @@ public class OfferPageStepDefinition {
 
     TestContextSetUp testContextStepUp;
 
-    PageObjectManager pageObjectManager;
 
     public OfferPageStepDefinition(TestContextSetUp contextStepUp)
     {
         this.testContextStepUp = contextStepUp;
-        //this.offersPage = pageObjectManager.getOffersPage();
-        this.offersPage = contextStepUp.offersPage;
+        this.offersPage = contextStepUp.pageObjectManager.getOffersPage();
     }
     @Then("^User searched for (.+) shortname in offers page$")
     public void user_searched_for_same_shortname_in_offers_page_to_check_if_product_exist_with_same_name(String ShortName) throws InterruptedException {

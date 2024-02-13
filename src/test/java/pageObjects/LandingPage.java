@@ -46,15 +46,12 @@ public class LandingPage {
         return driver.getTitle();
     }
 
-    public void incrementQuantity(int quantity)
-    {
-        int i = quantity-1;
-        while(i>0)
-        {
-            increment.click();
-            i--;
-        }
-    }
+ public void incrementQuantity(int quantity) {
+     for (int i = 0; i < quantity - 1; i++) {
+         increment.click();
+     }
+ }
+
     public void addToCartMethod()
     {
         addToCart.click();

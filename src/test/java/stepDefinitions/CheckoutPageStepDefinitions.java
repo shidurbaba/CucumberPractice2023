@@ -23,7 +23,7 @@ public class CheckoutPageStepDefinitions {
     public CheckoutPageStepDefinitions(TestContextSetUp contextStepUp) throws IOException {
         this.testContextStepUp = contextStepUp;
         //this.checkoutPage = pageObjectManager.getCheckoutPage();
-        this.checkoutPage = testContextStepUp.checkoutPage;
+        this.checkoutPage = testContextStepUp.pageObjectManager.getCheckoutPage();
 
 
     }
@@ -33,6 +33,7 @@ public class CheckoutPageStepDefinitions {
     public void userProceedsToCheckoutAndValidateTheNameItemsInCheckoutPage() throws InterruptedException {
 
         checkoutPage.CheckoutItems();
+        Thread.sleep(2000);
         //Assertion to extract name from screen and compare with name
     }
 

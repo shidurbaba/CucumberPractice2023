@@ -7,22 +7,20 @@ import org.testng.annotations.DataProvider;
 
 
 @CucumberOptions(
-        features = "C:\\Users\\moses\\IdeaProjects\\CucumberPractice2023\\src\\test\\java\\feature",
+        features = "@target/failed_scenarios.txt",
         glue = {"stepDefinitions"},
         plugin = {
                 "pretty",
                 "html:target/cucumber-reports/cucumber.html",
                 "json:target/cucumber-reports/cucumber.json",
-                "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:",
-                "rerun:target/failed_scenarios.txt"
+                "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"
         },
-        tags = "@Checkout",
         monochrome = true,
         dryRun = false
 )
-public class TestRunner extends AbstractTestNGCucumberTests {
+public class FailedTestRunner extends AbstractTestNGCucumberTests {
     @Override
-    @DataProvider (parallel=true)
+    @DataProvider (parallel=true    )
     public Object [][] scenarios()
     {
         return super.scenarios();
