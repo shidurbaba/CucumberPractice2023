@@ -5,6 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import utils.TestContextSetUp;
 
 public class LandingPage {
 
@@ -18,12 +19,14 @@ public class LandingPage {
     WebElement addToCart;
 
     public WebDriver driver;
+    private TestContextSetUp testContextSetUp;
 
 
     //Instantiate an object
    public LandingPage(WebDriver driver)
     {
         this.driver = driver;
+        this.testContextSetUp = new TestContextSetUp();
         PageFactory.initElements(driver, this);
     }
 
@@ -38,7 +41,7 @@ public class LandingPage {
 
     public void getMeGreenKartLandingPage ()
     {
-        driver.get("https://rahulshettyacademy.com/seleniumPractise/#/");
+        driver.get(testContextSetUp.properties.getProperty("url"));
     }
 
     public String getTitleLandingPage()

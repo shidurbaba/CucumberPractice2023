@@ -16,7 +16,6 @@ public class PageObjectManager {
     public CheckoutPage checkoutPage;
 
     public WebDriver driver;
-    private Properties properties;
 
     public PageObjectManager(WebDriver driver) {
 
@@ -44,16 +43,4 @@ public class PageObjectManager {
         return checkoutPage;
     }
 
-    public Properties getProperties() {
-        if (properties == null) {
-            String propertiesPath = System.getProperty("user.dir") + "//src//test//resources//global.properties";
-            try (FileInputStream fileInputStream = new FileInputStream(propertiesPath)) {
-                properties = new Properties();
-                properties.load(fileInputStream);
-            } catch (IOException e) {
-                // Handle exception: log it, throw a custom exception, etc.
-            }
-        }
-        return properties;
-    }
 }
