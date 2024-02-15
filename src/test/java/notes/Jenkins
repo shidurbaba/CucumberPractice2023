@@ -6,3 +6,12 @@ In your Jenkins configuration select - This project is parameterized options - N
 
 Under Build Steps - Invoke top-level Maven targets
 1. test -Dcucumber.filters.tags="@"$tags"" -Dbrowser="$browser"
+
+Jenkin Schedules
+1. Minutes - (0-59)
+2. Hours - (0-23)
+3. Daymonth - (1-31)
+4. Month - (1-12)
+5. Dayweek - (0-7)
+
+Go Build triggers --> Build periodically --> Schedule
