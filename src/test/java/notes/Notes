@@ -49,3 +49,6 @@ we can solve it using dependency injections like Picocontainer
 Factory Design Pattern:
 
 Hooks - Used for precondition and postcondition cleanups after test execution
+
+ //Java ternary properties - if the condition is 'true' value 1 else value 2.
+   String browser = browser_maven!=null ? browser_maven : browser_properties;

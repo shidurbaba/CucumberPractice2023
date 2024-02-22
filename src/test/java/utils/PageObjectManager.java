@@ -3,6 +3,7 @@ package utils;
 import org.openqa.selenium.WebDriver;
 import pageObjects.CheckoutPage;
 import pageObjects.LandingPage;
+import pageObjects.LocatorPageSignIn;
 import pageObjects.OffersPage;
 
 import java.io.FileInputStream;
@@ -14,6 +15,8 @@ public class PageObjectManager {
     public LandingPage landingPage;
     public OffersPage offersPage;
     public CheckoutPage checkoutPage;
+
+    public LocatorPageSignIn locatorPageSignIn;
 
     public WebDriver driver;
 
@@ -41,6 +44,13 @@ public class PageObjectManager {
             checkoutPage = new CheckoutPage(driver);
         }
         return checkoutPage;
+    }
+
+    public LocatorPageSignIn getLocatorPageSignIn() {
+        if(locatorPageSignIn == null) {
+            locatorPageSignIn = new LocatorPageSignIn(driver);
+        }
+        return locatorPageSignIn;
     }
 
 }

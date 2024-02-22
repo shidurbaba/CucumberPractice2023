@@ -1,0 +1,13 @@
+Locator Techniques
+
+CSS Selector:
+
+<button class="submit signInBtn" type="submit">Sign In</button>
+<input type="text" placeholder="Username" id="inputUsername" value="">
+
+1. Class name -> tagname.classname --> button.submit signInBtn
+2. ID -> tagname#ID --> input#InputName
+
+When css selector does not have class name or id:
+Then you will have a generic attribute --> tagname[attribute='value']
+And attribute value should be unique    ---> input[placeholder='Username']
