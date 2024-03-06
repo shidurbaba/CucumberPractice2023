@@ -3,6 +3,8 @@ package apiTests;
 import io.restassured.RestAssured;
 import io.restassured.path.json.JsonPath;
 import org.openqa.selenium.json.Json;
+import org.testng.Assert;
+import utils.GenericUtils;
 
 import static io.restassured.RestAssured.*;
 import static org.hamcrest.Matchers.*;
@@ -26,7 +28,7 @@ public class apiBasics {
 
         //Add place -> Update place with New Address -> Get Place to validate if New Address is present in response.
         System.out.println(response);
-        JsonPath js = new JsonPath(response);
+        JsonPath js = GenericUtils.rawtoJson(response);
         String place_id = js.getString("place_id");
         System.out.println(place_id);
 
@@ -42,9 +44,11 @@ public class apiBasics {
         String getPlaceResponse =  given().log().all().queryParam("key","qaclick123").header("Content-Type","application/json")
                 .queryParam("place_id", place_id).when().get(apiPayLoads.getResponse()).then().assertThat().log().all().statusCode(200).extract().response().asString();
 
-        JsonPath js1 = new JsonPath(getPlaceResponse);
+        JsonPath js1 = GenericUtils.rawtoJson(getPlaceResponse);
         String actualAddress = js1.getString("address");
         System.out.println(actualAddress);
+        //Asset Using TestNG
+        Assert.assertEquals(actualAddress, updateAddress);
 
 
     }

@@ -1,5 +1,6 @@
 package utils;
 
+import io.restassured.path.json.JsonPath;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -38,6 +39,12 @@ public class GenericUtils {
     public WebElement waitForElementToBeVisible(WebDriver driver, By locator, int timeoutInSeconds) {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofNanos(timeoutInSeconds));
         return wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+    }
+
+    public static JsonPath rawtoJson(String response)
+    {
+        JsonPath js1 = new JsonPath(response);
+        return js1;
     }
 
 
