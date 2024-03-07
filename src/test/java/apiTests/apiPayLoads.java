@@ -1,5 +1,9 @@
 package apiTests;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+
 public class apiPayLoads {
 
     public static String AddPlace()
@@ -20,6 +24,11 @@ public class apiPayLoads {
                 "  \"website\": \"http://google.com\",\n" +
                 "  \"language\": \"French-IN\"\n" +
                 "}\n";
+    }
+
+    //Handling Dynamic data from external Json file
+    public static String getAddPlace() throws IOException {
+        return new String(Files.readAllBytes(Path.of("C:\\Users\\moses\\IdeaProjects\\CucumberPractice2023\\src\\test\\java\\notes\\AddPlace.json")));
     }
 
     public static String postResponse()
