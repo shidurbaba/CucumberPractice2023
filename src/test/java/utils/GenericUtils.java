@@ -1,6 +1,7 @@
 package utils;
 
 import io.restassured.path.json.JsonPath;
+import io.restassured.response.Response;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -44,6 +45,11 @@ public class GenericUtils {
     public static JsonPath rawtoJson(String response)
     {
         JsonPath js1 = new JsonPath(response);
+        return js1;
+    }
+    public static JsonPath rawtoJson(Response response)
+    {
+        JsonPath js1 = new JsonPath(response.asInputStream());
         return js1;
     }
 

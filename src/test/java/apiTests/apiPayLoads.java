@@ -80,4 +80,31 @@ public class apiPayLoads {
                 "}\r\n" +
                 "";
     }
+
+    public static String baseURI()
+    {
+        return "http://216.10.245.166";
+    }
+
+    public static String AddBook(String isbn, String aisle)
+    {
+        return "{\n" +
+                "\n" +
+                "\"name\":\"Learn Appium Automation with Java\",\n" +
+                "\"isbn\":\""+isbn+"\",\n" +
+                "\"aisle\":\""+aisle+"\",\n" +
+                "\"author\":\"John foe\"\n" +
+                "}";
+    };
+    public static String postAddBook(){ return "Library/Addbook.php ";};
+
+    public static String getBookFromLibrary(String argument, String argument2) {
+        String getBookVariable="";
+        if (argument.equalsIgnoreCase("author")) {
+            getBookVariable = "/Library/GetBook.php?AuthorName=" + argument2 + "";
+        } else if (argument.equalsIgnoreCase("ID")) {
+            getBookVariable=  "/Library/GetBook.php?ID=" + argument2 + "";
+        }
+        return getBookVariable;
+    }
 }
