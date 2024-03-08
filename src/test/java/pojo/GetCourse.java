@@ -1,4 +1,4 @@
-package Pojo;
+package pojo;
 
 public class GetCourse {
     private String instructor;

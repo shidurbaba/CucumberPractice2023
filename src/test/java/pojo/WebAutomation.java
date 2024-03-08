@@ -1,6 +1,6 @@
-package Pojo;
+package pojo;
 
-public class Mobile {
+public class WebAutomation {
     private String courseTitle;
     private String price;
 
@@ -19,4 +19,7 @@ public class Mobile {
     public String getPrice() {
         return price;
     }
+
+
+
 }
