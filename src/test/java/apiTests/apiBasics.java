@@ -27,7 +27,7 @@ public class apiBasics {
                 .extract().response().asString();
 
         //Add place -> Update place with New Address -> Get Place to validate if New Address is present in response.
-        System.out.println(response);
+        System.out.println("My response: "+ response);
         JsonPath js = GenericUtils.rawtoJson(response);
         String place_id = js.getString("place_id");
         System.out.println(place_id);
