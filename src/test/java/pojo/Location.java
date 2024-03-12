@@ -2,6 +2,12 @@ package pojo;
 
 public class Location {
 
+    public static Location locationInitialize()
+    {
+        Location loc = new Location();
+        return loc;
+    }
+
     public double getLatitude() {
         return latitude;
     }

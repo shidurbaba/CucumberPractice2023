@@ -1,5 +1,7 @@
 package pojo;
 
+import org.apache.commons.math3.analysis.function.Add;
+
 import java.util.List;
 
 public class AddPlace {
@@ -11,6 +13,14 @@ public class AddPlace {
     private String website;
     private String language;
     private Location location;
+
+    private AddPlace place;
+
+    public static AddPlace addplaceInitialize()
+    {
+        AddPlace addplace = new AddPlace();
+        return addplace;
+    }
 
     public Location getLocation() {
         return  location;
